@@ -1,6 +1,6 @@
 
-import ListTodo from "../pages/ListTodo";
-import Todo from "../pages/Todo"
+import ListTodo from "../components/ListTodo";
+import Todo from "../components/Todo"
 
 const routesUser= [
     {

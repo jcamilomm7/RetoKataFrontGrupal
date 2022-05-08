@@ -8,7 +8,6 @@ import {
   FormGroup,
 } from "reactstrap";
 const ListToList = () => {
-  
   //Estados para los modales
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
@@ -150,14 +149,14 @@ const ListToList = () => {
     })
       .then((response) => response.json())
       .then((todo) => {});
-      window.location.reload();
+    window.location.reload();
   };
 
   return (
     <>
       {listas.map((lista, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="lista">
             <h1>{lista.name}</h1>
             <button onClick={() => eliminarLista(lista.id)}>
               Eliminar lista
@@ -175,12 +174,14 @@ const ListToList = () => {
                 Crear
               </button>
             </form>
-            <table>
+            <table className="table table-success table-striped tabletareas">
               <thead>
                 <tr>
                   <td>ID</td>
                   <td>Tarea</td>
                   <td>¿Completado?</td>
+                  <td>Editar</td>
+                  <td>Eliminar</td>
                 </tr>
               </thead>
               <tbody>
@@ -208,7 +209,10 @@ const ListToList = () => {
                           >
                             Editar
                           </button>
-                          <button
+                          
+                        </td>
+                        <td>
+                        <button
                             onClick={() => seleccionarTarea(tarea, "Eliminar")}
                           >
                             Eliminar
@@ -220,9 +224,11 @@ const ListToList = () => {
                 })}
               </tbody>
             </table>
+            <hr />
           </div>
         );
       })}
+
       <Modal isOpen={modalEditar}>
         <ModalHeader>
           <div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ListToList from "../components/ListToList";
-
+import ListToList from "./ListToList";
+import Navbar from "./Navbar"
 const ListTodo = () => {
   const [nombreLista, setNombreLista] = useState("");
   const [listaId, setListaId] = useState(0);
@@ -43,6 +43,7 @@ const ListTodo = () => {
 
   return (
     <>
+    <Navbar/>
       <form id="myform">
         <input
           id="nombrelista"
